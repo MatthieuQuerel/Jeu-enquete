@@ -1,0 +1,44 @@
+.Footer {
+    background-color: rgba(166,195,191,255);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+  }
+  .Footer p {
+    font-weight: bold;
+    font-size: 1.2em;
+   
+  }
+.Picture_detective{
+    margin-left: 40rem;
+    width: 370px;
+  height: 130px;
+    
+}
+
+  /* Texte */
+
+  /* Sang */
+  .Footer::after {
+    position: absolute;
+    animation: drip 10s infinite;
+  }
+  .Footer:hover {
+    filter: drop-shadow(0 0 3em rgba(141, 197, 218, 0.667));
+  }
+ 
+  @keyframes drip {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-5px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }

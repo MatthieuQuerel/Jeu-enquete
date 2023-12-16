@@ -1,0 +1,46 @@
+div {
+  text-align: center;
+ 
+}
+
+/* Styles pour le titre h1 */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Styles pour le formulaire */
+.add-person-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles pour l'étiquette du champ de saisie */
+label {
+  margin-bottom: 10px;
+}
+
+/* Styles pour le champ de saisie */
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* Styles pour le bouton */
+button {
+  background-color: #4caf50; /* Couleur de fond verte */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Styles pour le bouton au survol */
+button:hover {
+  background-color: #45a049; /* Légère variation de couleur au survol */
+}

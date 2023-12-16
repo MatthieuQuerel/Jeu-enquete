@@ -1,0 +1,42 @@
+ .Personne {
+  margin: 3px;
+  
+  padding: 3px;
+} 
+
+.Personne li {
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+.DescriptionPersonne {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+  margin-top: 5px;
+  
+}
+
+.card {
+  
+  border-radius: 30px;
+  border: 1rem solid  rgba(243, 243, 242, 0.6);;
+  padding: 10px;
+ 
+}
+
+.card-Photo {
+  width: 100%;
+  height: 145px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.card-description {
+  font-size: 16px;
+  margin-top: 10px;
+}

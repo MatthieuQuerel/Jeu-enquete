@@ -1,0 +1,36 @@
+.Metier {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 55px;
+  }
+  
+  .Metier li {
+    display: flex;
+    list-style-type: none;
+    flex-direction: column;
+    /* margin-bottom: 1rem; */
+  }
+  
+  .Metier .BTNReponse {
+    
+    padding: 5px 5px;
+    cursor: pointer;
+  }
+  
+  .Metier .BTNReponse button {
+    font-size: 18px;
+    width: 8rem;
+    font-weight: bold;
+  }
+  .Metier .BTNReponse button:hover {
+    color: rgba(141, 197, 218, 0.667);
+  }
+  .Start {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: row;
+    margin-left: 18rem;
+    align-items: center;
+  }
+  

@@ -1,0 +1,23 @@
+.Welcome {
+   
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    width: 600px;
+    margin-left: 300px;
+    
+  }
+  
+  .Welcome h1 {
+    color: #f9f9f9;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .Welcome p {
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(248, 248, 248, 0.2);
+    line-height: 2;
+    margin-bottom: 20px;
+  }

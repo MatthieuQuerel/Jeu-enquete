@@ -1,0 +1,41 @@
+
+.Answer  {
+    display: flex;
+    justify-content: center;
+  }
+  .Answer li {
+    list-style-type: none;
+    margin-bottom: 4px;
+  }
+  
+  .DescriptionAnswer {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px;
+   
+    
+  }
+  
+  .card {
+    border-radius: 30px;
+    border: 1rem solid  rgba(243, 243, 242, 0.6);;
+    
+   
+  }
+  
+  .card-Photo {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 20px;
+   
+  }
+  
+  .card-description {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
