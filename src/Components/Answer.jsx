@@ -27,6 +27,28 @@ class Answer extends Component {
             console.error('Erreur lors de la récupération des données :', error);
           });
       }
+      Supp = async ()=>{
+        console.log('click')
+        const options = {
+          method: 'DELETE', // HTTP method
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept-Charset': 'utf-8', // Specify that we are sending JSON data
+            // You can add other headers if needed
+          },
+         
+        };
+      const response = await fetch('http://localhost:8081/Answer',options)
+    
+      // const responseData = await response.text();
+      // console.log('Server Response:', responseData);
+    
+      if (response.ok) {
+        console.log('envoie avec succès');
+      } else {
+        console.error('erreur envoie form data');
+      }
+      }
 
     render() {
         return (
@@ -45,6 +67,10 @@ class Answer extends Component {
                          </li> 
                       ))}
                     </ul>
+                    <div className ="BTN">
+                    <button className ="BTNDELETE" onClick={this.Supp}> Delete all replies </button>
+                    </div>
+                    
            </div>
         )
     }

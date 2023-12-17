@@ -6,6 +6,7 @@ import Answer from './Components/Answer.jsx';
 import Start from './Components/start.jsx';
 import Personne from './Components/Personne.jsx';
 import Authentification from './Components/Authentification.jsx';
+import Compte from './Components/Compte.jsx';
 import Erreur from './Components/Erreur.jsx';
 
 import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
@@ -17,6 +18,7 @@ function App() {
         <NavBar />
         <Routes >
           <Route path="/" exact element={<Welcome />} />
+          <Route path="/Compte" exact element={<Compte />} />
           <Route path="/Authentification" exact element={<Authentification />} />
            <Route path="/Start" exact element={<Start />} /> 
            <Route path="/Start/:nom" exact element={<Personne />} /> 

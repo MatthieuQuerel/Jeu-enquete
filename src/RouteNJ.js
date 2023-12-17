@@ -1,4 +1,5 @@
 const express = require('express');
+const port = 8081;
 const mysql = require('mysql2');
 const app = express(); // Utilisez 'mysql2/promise' pour prendre en charge les Promises
 const cors = require('cors');
@@ -118,46 +119,64 @@ app.post('/Reponse', async (req, res) => {
 });
   
  
-// app.post('/Authentification', async (req, res) => {
-//   try {
-// const connection = await connectToDatabase();
-//     const formData = req.body; 
-// console.log(formData);
-//  const query = `INSERT INTO authentification (Mail, PassWord) 
-//  VALUES ('${formData.email}', '${formData.Password}')`;
+app.delete('/Answer', async (req, res) => {
+  try {
+    const connection = await connectToDatabase();
+    // Vous n'avez pas besoin de req.body pour une requête DELETE
 
-//     await executeQuery(connection, query);
-//     res.status(200).json({ message: 'Data received successfully' });
-//  } catch (error) {
-    
-  
-// console.error('Error:', error);
-//      res.
-   
-//  status(500).json({ error: 'Internal Server Error' });
-//    }
-//  });
+    const query = `DELETE FROM reponse`;
+    await executeQuery(connection, query);
+
+    res.status(200).json({ message: 'Data deleted successfully' });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+//elle marche 
+app.post('/Compte', async (req, res) => {
+  try {
+const connection = await connectToDatabase();
+    const formData = req.body; 
+console.log(formData);
+console.log(formData.email);
+ const query = `INSERT INTO authentification (Mail, PassWord) VALUES ('${formData.email}', '${formData.Password}')`;
+ console.log(query);
+    await executeQuery(connection, query);
+
+    res.status(200).json({ message: 'Data received successfully' });
+ } catch (error) {
+console.error('Error:', error);
+ res.status(500).json({ error: 'Internal Server Error' });
+   }
+ });
+ 
+ //elle marche pas encor
+ app.get('/Authentification?mail=:Mail', async (req, res) => {
+  const connection = await connectToDatabase();
+  const formData = req.params.Mail;
+  console.log(formData)
+
+  const query =`SELECT mail FROM authentification WHERE Mail = '${formData}'`;
+  try {
+    const data = await executeQuery(connection, query);
+    const authentification = data.map((authentification) => ({
+      Mail: authentification.Mail,
+    }));
+    return res.json(authentification);
+  } catch (err) {
+    console.error('Erreur lors de la récupération des données :', err);
+    res.status(500).json({ message: 'Erreur lors de la récupération des données' });
+  }
+});
 
 
-// app.delete('/Authentification', async (req, res) => {
-//   try {
-//     const connection = await connectToDatabase();
-
-//     const query = `DELETE FROM authentification WHERE Mail = '${req.body.email}'`;
-
-//     await executeQuery(connection, query);
-
-//     res.status(200).json({ message: 'Data deleted successfully' });
-//   } catch (error) {
-//     console.error('Error:', error);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
 
 
 
 
 
-app.listen(8081, () => {
+app.listen(port, () => {
     console.log('Le serveur est en cours d\'exécution sur http://localhost:8081');
   });

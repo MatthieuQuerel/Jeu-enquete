@@ -67,11 +67,13 @@ class Reponse extends Component {
         
       
       };
-    
+
+      
+
       render() {
         return (
           <div>
-            <h1>Killeur</h1>
+            <h1>Killer</h1>
             <form className="add-person-form" onSubmit={this.handleSubmit}>
              
               <label>

@@ -1,7 +1,8 @@
 
 .Answer  {
+  padding-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
   }
   .Answer li {
     list-style-type: none;
@@ -38,4 +39,13 @@
     font-size: 14px;
     margin-top: 10px;
   }
-  
+  .BTNDELETE{
+    padding-top: 5px;
+   height: 50px;
+   padding: 0.6em ;
+  } 
+  .BTNDELETE{
+    padding-top: 20px;
+   height: 50px;
+   padding: 0.6em ;
+  }

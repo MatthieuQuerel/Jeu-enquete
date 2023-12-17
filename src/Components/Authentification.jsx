@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import './CSS/Personne.css';
+import './CSS/Authentification.css';
 
 //import { useParams } from "react-router-dom";
 
@@ -9,18 +9,20 @@ class Authentification extends Component {
         this.state = {
             Email: '',
           Password: '',
-          Delete: false,
-          Conection: false, 
+          data: [],
+          
          
         };
       }
     
+
       handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value,[e.target.Conection]: e.target.value,[e.target.Delete]: e.target.value,[e.target.Password]: e.target.value,[e.target.Email]: e.target.value  });
-        // this.setState({ [e.target.Conection]: e.target.value }); 
-        // this.setState({ [e.target.Delete]: e.target.value });
-        // this.setState({ [e.target.Password]: e.target.value });
-        // this.setState({ [e.target.Email]: e.target.value });
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+        this.setState({ [e.target.name]: value});
+        
+        
+        this.setState({ [e.target.Password]: e.target.value });
+        this.setState({ [e.target.Email]: e.target.value });
         
       };
       Champsremplie = async () => {
@@ -32,38 +34,53 @@ class Authentification extends Component {
           alert("Il manque des infos");
         } else {
            
-          try {
-            const response = await fetch('http://localhost:8081/Authentification', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(this.state),
-            });
           
-            const responseData = await response.text();
-            console.log('Server Response:', responseData);
+            if (this.state.Email !== undefined) {
+                const Mail = this.state.Email;
+
+                const options = {
+                  method: 'GET', // HTTP method
+                  headers: {
+                    'Content-Type': 'application/json' // Specify that we are sending JSON data
+                  },
+                };
           
-            if (response.ok) {
-              console.log('envoie avec succès');
-            } else {
-              console.error('erreur envoie form data');
-            }
-          } catch (error) {
-            console.error('Network error:', error);
-          }     
-        
-    
-       }
-      };
+                const url = `http://localhost:8081/Authentification?mail=${encodeURIComponent(Mail)}`;
+                // window.location.href = url;
+                fetch(url, options)
+                  .then(response => {
+                    console.log(response);
+                    if (!response.ok) {
+                      throw new Error('Échec de la requête');
+                    }
+                    return response.json();
+                  })
+                  .then(data => {
+                    console.log('OK', data);
+                    this.setState({
+                      data: data // Correction ici
+                    });
+                  })
+                  .catch(error => {
+                    console.error('Erreur lors de la récupération des données :', error);
+                  });
+      }
+      }
+         
+       
+      
+      }
       
     
       handleSubmit = (e) => {
         e.preventDefault();
         // Add your logic to handle the form submission using this.state.Nom
      
+        const formData = new FormData(e.target);
+
+  // Envoiez les données du formulaire à un serveur ou effectuez une autre action ici
+  this.Champsremplie(formData);
         
-        console.log('prenom submitted:', this.state.Delete);
         
         console.log('adresse submitted:', this.state.Password);
         
@@ -81,25 +98,30 @@ class Authentification extends Component {
             <form className="add-person-form" onSubmit={this.handleSubmit}>
              
               <label>
-               
-                <input type="text" name="Email"  value={this.state.Email} onChange={this.handleChange} placeholder="e-mail" />
+              <input type="test" name="Email" value={this.state.Email} onChange={this.handleChange} placeholder="Email" />
               </label>
               <label>
                 
-                <input type="text" name="Password"  value={this.state.Password} onChange={this.handleChange} placeholder="PassWord" />
+                <input type="password" name="Password"  value={this.state.Password} onChange={this.handleChange} placeholder="PassWord" />
               </label>
-              <label>
-              connection:
-                <input type="checkbox" name="connection"  value={this.state.Conection} onChange={this.handleChange} />
-              </label>
-              <label>
-              delete:
-                <input type="checkbox" name="delete" value={this.state.Delete} onChange={this.handleChange} />
-              </label>
+            
+             
               
               <button  onClick={this.Champsremplie}>Ajouter</button>
             </form>
-           
+            <ul >
+                      {this.state.data.map((item, index) => ( 
+                      <li key={index}>
+                        <div >
+
+                        
+                             <p className="card-title">  {item.Mail}</p>
+                             
+                                                     
+                        </div>               
+                         </li> 
+                      ))}
+                    </ul>
           </div>
         );
       }

@@ -5,6 +5,7 @@ import './CSS/Nav.css';
 const NavBar =()=> {
   return(
     <nav className="navbar">
+      <Link className="CompteBTN" to={{pathname: `/Compte`}}><button>Compte</button></Link> 
       <Link className="AuthentificationBTN" to={{pathname: `/Authentification`}}><button>Authentification</button></Link> 
       <ul>
         <li>
@@ -17,6 +18,7 @@ const NavBar =()=> {
             <Link to="/Answer">Answer</Link>
         </li>
       </ul>
+      <p></p>
     </nav>
   )
 }
