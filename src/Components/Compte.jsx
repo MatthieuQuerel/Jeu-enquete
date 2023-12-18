@@ -34,15 +34,17 @@ class Compte extends Component {
         } else {
            
           try {
+            
             if (this.state.Email !== undefined) {
               const options = {
                 method: 'POST', // HTTP method
                 headers: {
-                  'Content-Type': 'application/json' // Specify that we are sending JSON data
+                  'Content-Type': 'application/json; charset=utf-8', // Specify that we are sending JSON data
                   // You can add other headers if needed
                 },
                 body: JSON.stringify(this.state) // Convert the data to JSON format
               };
+              
             const response = await fetch('http://localhost:8081/Compte',options)
           
             // const responseData = await response.text();

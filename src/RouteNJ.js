@@ -140,8 +140,8 @@ app.post('/Compte', async (req, res) => {
 const connection = await connectToDatabase();
     const formData = req.body; 
 console.log(formData);
-console.log(formData.email);
- const query = `INSERT INTO authentification (Mail, PassWord) VALUES ('${formData.email}', '${formData.Password}')`;
+
+ const query = `INSERT INTO authentification (Mail, PassWord) VALUES ('${formData.Email}', '${formData.Password}')`;
  console.log(query);
     await executeQuery(connection, query);
 
