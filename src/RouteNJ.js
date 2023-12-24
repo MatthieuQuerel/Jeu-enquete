@@ -164,7 +164,7 @@ console.error('Error:', error);
     const authentification = data.map((authentification) => ({
       Mail: authentification.Mail,
     }));
-    return res.json(authentification);
+    return res.json(authentification); 
   } catch (err) {
     console.error('Erreur lors de la récupération des données :', err);
     res.status(500).json({ message: 'Erreur lors de la récupération des données' });
