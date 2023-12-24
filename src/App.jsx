@@ -6,6 +6,7 @@ import Answer from './Components/Answer.jsx';
 import Start from './Components/start.jsx';
 import Personne from './Components/Personne.jsx';
 import Authentification from './Components/Authentification.jsx';
+import AuthentificationGood from './Components/AthentificatonGood.jsx';
 import Compte from './Components/Compte.jsx';
 import Erreur from './Components/Erreur.jsx';
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" exact element={<Welcome />} />
           <Route path="/Compte" exact element={<Compte />} />
           <Route path="/Authentification" exact element={<Authentification />} />
+          <Route path="/Authentification/:Mail" exact element={<AuthentificationGood />} />
            <Route path="/Start" exact element={<Start />} /> 
            <Route path="/Start/:nom" exact element={<Personne />} /> 
            <Route path="/Answer" exact element={<Answer />} />

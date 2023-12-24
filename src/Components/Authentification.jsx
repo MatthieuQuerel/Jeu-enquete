@@ -1,5 +1,7 @@
 import {Component} from 'react';
 import './CSS/Authentification.css';
+//  const jwt = require('jsonwebtoken');
+import { Link } from "react-router-dom";
 
 //import { useParams } from "react-router-dom";
 
@@ -10,7 +12,7 @@ class Authentification extends Component {
             Email: '',
           Password: '',
           data: [],
-          
+          // token:'',
          
         };
       }
@@ -25,6 +27,22 @@ class Authentification extends Component {
         this.setState({ [e.target.Email]: e.target.value });
         
       };
+
+      //  generateToken = () => {
+      //   const now = Date.now();
+      //   const expires = now + 1 * 1000;
+      //   const token = jwt.sign({
+      //     expires: expires,
+      //   }, 1234, {
+      //     header: {
+      //       typ: 'JWT',
+      //       alg: 'HS256',
+      //     },
+      //   });
+        
+      //   return token;
+      // };
+       
       Champsremplie = async () => {
         if (
           this.state.Password === "" ||
@@ -36,16 +54,18 @@ class Authentification extends Component {
            
           
             if (this.state.Email !== undefined) {
-                const Mail = this.state.Email;
-
+                //const Mail = this.state.Email;
+                
                 const options = {
                   method: 'GET', // HTTP method
                   headers: {
-                    'Content-Type': 'application/json' // Specify that we are sending JSON data
+                    'Content-Type': 'application/json', // Specify that we are sending JSON data
+                    //'Authorization': `Bearer ${token}`,
                   },
+                  
                 };
           
-                const url = `http://localhost:8081/Authentification?mail=${encodeURIComponent(Mail)}`;
+                const url = `http://localhost:8081/Authentification`;
                 // window.location.href = url;
                 fetch(url, options)
                   .then(response => {
@@ -57,18 +77,17 @@ class Authentification extends Component {
                   })
                   .then(data => {
                     console.log('OK', data);
-                    this.setState({
-                      data: data // Correction ici
-                    });
+                    if(this.state.Email === data[0].Mail ){
+                      this.setState({
+                        data: data // Correction ici
+                      });
+                    }
                   })
                   .catch(error => {
                     console.error('Erreur lors de la récupération des données :', error);
                   });
       }
       }
-         
-       
-      
       }
       
     
@@ -105,8 +124,7 @@ class Authentification extends Component {
                 <input type="password" name="Password"  value={this.state.Password} onChange={this.handleChange} placeholder="PassWord" />
               </label>
             
-             
-              
+
               <button  onClick={this.Champsremplie}>Ajouter</button>
             </form>
             <ul >
@@ -115,7 +133,11 @@ class Authentification extends Component {
                         <div >
 
                         
-                             <p className="card-title">  {item.Mail}</p>
+                        <Link to={{
+                          
+                          pathname: `/Authentification/${item.Mail}`
+                              
+                            }}><button className="card-title"> {item.Mail}</button></Link>
                              
                                                      
                         </div>               

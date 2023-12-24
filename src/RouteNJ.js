@@ -152,13 +152,13 @@ console.error('Error:', error);
    }
  });
  
- //elle marche pas encor
- app.get('/Authentification?mail=:Mail', async (req, res) => {
+
+ app.get('/Authentification', async (req, res) => {
   const connection = await connectToDatabase();
   const formData = req.params.Mail;
   console.log(formData)
 
-  const query =`SELECT mail FROM authentification WHERE Mail = '${formData}'`;
+  const query =`SELECT Mail FROM authentification`;
   try {
     const data = await executeQuery(connection, query);
     const authentification = data.map((authentification) => ({
@@ -170,12 +170,7 @@ console.error('Error:', error);
     res.status(500).json({ message: 'Erreur lors de la récupération des données' });
   }
 });
-
-
-
-
-
-
+ //elle marche pas encor
 
 app.listen(port, () => {
     console.log('Le serveur est en cours d\'exécution sur http://localhost:8081');
