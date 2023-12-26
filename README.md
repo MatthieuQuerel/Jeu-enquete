@@ -1,13 +1,15 @@
-# React + Vite
-Table des matières
+
+Table des matières:
 # Lancer le projet 
 ## Conception => Dictionnaire des données
 ### Modèle Conceptuel des Données (MCD)
+#### Références
+##### Remarques
 
-* Lancer le projet
+#Lancer le projet
   Partie Font :
--pour lancer le projet après avoir récupérer le projet :
-npm run dev
+-pour lancer le projet après avoir récupéré le projet :
+la commande 'npm run dev' pour lancer le projet et il me renvoie une URL pour moi qui est  'http://localhost:5173' pour aller sur la première page ensuite bien lancer son serveur et importez-les tables
 - dependence si il y a un probleme :
 concurrently "^8.2.2"
 cors "^2.8.5"
@@ -27,7 +29,7 @@ npm i react-router-dom@^6.20.1
 
 Partie backend :
 - A laide d un serveur local wamp  
-veiller a import =>
+veiller a import sois le fichier au Format Json ou CSV ou sql  =>
 FORMAT JSON : 
 [
 {"type":"header","version":"5.1.1","comment":"Export to JSON plugin for PHPMyAdmin"},
@@ -210,7 +212,7 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
- **Dictionnaire des données
+ ##Dictionnaire des données
 
 Ressource            |		URL	                              |	 Méthodes HTTP   |	     Paramètres d'URL/Variations	  |	                              Commentaires                    |	
 /                      (front) http://localhost:5173                 /                            /                      Acceil app et explication régle
@@ -218,7 +220,7 @@ Ressource            |		URL	                              |	 Méthodes HTTP   |	
 /Start                 (back) http://localhost:8081/Start           GET                            /                       choix métier              
                        (front) http://localhost:5173/Start
              
-/Start/:nom            (back) http://localhost:8081/Start/:nom      GET                          :nom                    affichage personne selon métier ex: param = Electricien
+/Start/:nom            (back) http://localhost:8081/Start/:nom      GET                          :nom                      affichage personne selon métier ex: param = Electricien
                        (front) http://localhost:5173/Start/:nom 
 
 /Answer                (back) http://localhost:8081/Answer          GET                           /                        reponse de qui est le tueur 
@@ -230,27 +232,30 @@ Ressource            |		URL	                              |	 Méthodes HTTP   |	
 /Answer                (back) http://localhost:8081/Answer         Delete                         /                         Suprimer tout les réponse qui existe dans la table 
                        (front) http://localhost:5173/Answer
 
-/Compte                (back) http://localhost:8081/Compte         Post                           /                           créé un comprte
+/Compte                (back) http://localhost:8081/Compte         Post                           /                         créé un comprte
                        (front) http://localhost:5173/Compte
                          
-/Authentification?mail=:Mail    (back) http://localhost:8081/Authentification?mail=:Mail          /                           j'ai tester une authentification par mail 
-                                 (front) http://localhost:5173/Authentification?mail=:Mail
+/Authentification/:Mail    (back) http://localhost:8081//Authentification/:Mail                 :Mail                      j'ai tester une authentification par mail 
+                           (front) http://localhost:5173/Authentification
 
-*** Modèle Conceptuel des Données (MCD) 
+### Modèle Conceptuel des Données (MCD) 
 
  table : Personenage => id_Personenage/Nom/ID_Metier/Description/Photo
- relaton : Personenage *  - 1 Reponse
+ relaton : Personenage *   1 Reponse
  table : Reponse  =>     ID_Reponse /Reponse
  table : Méthier =>      IDMethier/NomMethier
- table : authentification => ID_authentification/ PassWord /Mail                        
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ table : authentification => ID_authentification/ PassWord /Mail
+#### Références
+https://nodejs.org/en
+https://expressjs.com/fr/
+https://fr.legacy.reactjs.org/
+##### Remarques
+j' ai beaucoup aimer ce projet car il est assez complet avec react et express j'ai pu aprendre de nouvelles choses en react et node js et express. 
+j'ai pu essayer des choses donc je pense les montrer en entreprise.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# J e u - e n q u e t e 
- 
- # J e u - e n q u e t e 
+
+
+
  
  
