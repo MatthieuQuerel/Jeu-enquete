@@ -240,6 +240,15 @@ Ressource            |		URL	                              |	 Méthodes HTTP   |	
 
 ### Modèle Conceptuel des Données (MCD) 
 
++------------------+         +------------------+         +------------------+         +------------------------+
+|   Personenage    |         |      Reponse     |         |     Métier       |         |  Authentification      |
++------------------+         +------------------+         +------------------+         +------------------------+
+| id_Personnage    |         | ID_Reponse       |         | IDMethier        |         | ID_authentification    |
+| Nom              |         | Reponse          |         | NomMethier       |         | PassWord               |
+| ID_Metier        |*-------1|                  |         +------------------+         | Mail                   |
+| Description      |         |                  |                                      +------------------------+ 
+| Photo            |         +------------------+
++------------------+
  table : Personenage => id_Personenage/Nom/ID_Metier/Description/Photo
  relaton : Personenage *   1 Reponse
  table : Reponse  =>     ID_Reponse /Reponse
@@ -249,6 +258,7 @@ Ressource            |		URL	                              |	 Méthodes HTTP   |	
 https://nodejs.org/en
 https://expressjs.com/fr/
 https://fr.legacy.reactjs.org/
+Livre => Express in Action , Learning Node: Moving to the Server-Side
 ##### Remarques
 j' ai beaucoup aimer ce projet car il est assez complet avec react et express j'ai pu aprendre de nouvelles choses en react et node js et express. 
 j'ai pu essayer des choses donc je pense les montrer en entreprise.
