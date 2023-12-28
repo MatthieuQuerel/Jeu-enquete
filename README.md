@@ -8,8 +8,8 @@ Table des matières:
 
 #Lancer le projet
   Partie Font :
--Pour lancer le projet après avoir récupéré le projet :
-la commande 'npm run dev' pour lancer le projet et il me renvoie une URL pour moi qui est  'http://localhost:5173' pour aller sur la première page ensuite bien lancer son serveur et importez-les tables
+-Pour lancer le projet après avoir récupéré le projet :.
+la commande 'npm run dev' pour lancer le projet et il me renvoie une URL pour moi qui est  'http://localhost:5173' (Metre l'URL dans son navigateur) pour aller sur la première page ensuite bien lancer son serveur Wamp avant et importez-les tables.
 - dependence s'il y a un problème :
 concurrently "^8.2.2"
 cors "^2.8.5"
