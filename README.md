@@ -8,9 +8,9 @@ Table des matières:
 
 #Lancer le projet
   Partie Font :
--pour lancer le projet après avoir récupéré le projet :
+-Pour lancer le projet après avoir récupéré le projet :
 la commande 'npm run dev' pour lancer le projet et il me renvoie une URL pour moi qui est  'http://localhost:5173' pour aller sur la première page ensuite bien lancer son serveur et importez-les tables
-- dependence si il y a un probleme :
+- dependence s'il y a un problème :
 concurrently "^8.2.2"
 cors "^2.8.5"
 express "^4.18.2"
@@ -260,8 +260,9 @@ https://expressjs.com/fr/
 https://fr.legacy.reactjs.org/
 Livre => Express in Action , Learning Node: Moving to the Server-Side
 ##### Remarques
-j' ai beaucoup aimer ce projet car il est assez complet avec react et express j'ai pu aprendre de nouvelles choses en react et node js et express. 
-j'ai pu essayer des choses donc je pense les montrer en entreprise.
+J’ai beaucoup aimé ce projet car il est assez complet avec react et express, j&#39;ai pu
+apprendre de nouvelles choses en react et node js et express tel que le passage de
+paramètres, j'ai pu essayer des choses que je pense montrer en entreprise.
 
 
 
