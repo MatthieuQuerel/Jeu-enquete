@@ -240,15 +240,6 @@ Ressource            |		URL	                              |	 Méthodes HTTP   |	
 
 ### Modèle Conceptuel des Données (MCD) 
 
-+------------------+         +------------------+         +------------------+         +------------------------+
-|   Personenage    |         |      Reponse     |         |     Métier       |         |  Authentification      |
-+------------------+         +------------------+         +------------------+         +------------------------+
-| id_Personnage    |         | ID_Reponse       |         | IDMethier        |         | ID_authentification    |
-| Nom              |         | Reponse          |         | NomMethier       |         | PassWord               |
-| ID_Metier        |*-------1|                  |         +------------------+         | Mail                   |
-| Description      |         |                  |                                      +------------------------+ 
-| Photo            |         +------------------+
-+------------------+
  table : Personenage => id_Personenage/Nom/ID_Metier/Description/Photo
  relaton : Personenage *   1 Reponse
  table : Reponse  =>     ID_Reponse /Reponse
